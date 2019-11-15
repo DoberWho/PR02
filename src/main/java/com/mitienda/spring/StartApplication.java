@@ -1,5 +1,8 @@
 package com.mitienda.spring;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +26,30 @@ public class StartApplication implements CommandLineRunner {
     public void run(String... args) {
 
         log.info("StartApplication...");
+        
+        // Creamos objetos y los guardamos en la base de datos
+        repository.save(new Categoria("Java"));
+        repository.save(new Categoria("Node"));
+        repository.save(new Categoria("Python"));
 
-        repository.save(new Categorias("Java"));
-        repository.save(new Categorias("Node"));
-        repository.save(new Categorias("Python"));
+        // Recogemos todos los Objetos de la base de datos
+        Iterable<Categoria> arTODOS = repository.findAll();
+        // .forEach(x -> System.out.println(x))
 
-        System.out.println("\nfindAll()");
-        repository.findAll().forEach(x -> System.out.println(x));
+        // Recogemos el Objecto con ID
+        Optional<Categoria> item = repository.findById(1l);
+        // item..ifPresent(x -> System.out.println(x)); // Devuelve el objecto si existe
+        Categoria cat = item.get();
 
-        System.out.println("\nfindById(1L)");
-        repository.findById(1l).ifPresent(x -> System.out.println(x));
-
-        System.out.println("\nfindByName('Node')");
-        repository.findByName("Node").forEach(x -> System.out.println(x));
+        // Recoger todos los que tengan con nombre; es homologo a like %Node% en SQL
+        List<Categoria> arList = repository.findByName("Node");
+        
+        // Borrar por Objecto
+        repository.delete(cat);
+        // Borrar el ID
+        repository.deleteById(1L);
+        // Contarlos que hay en la base de datos
+        repository.count();
 
     }
 
