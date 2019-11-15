@@ -1,6 +1,8 @@
-package com.mitienda.spring;
+package com.mitienda.spring.repositories;
 
 import org.springframework.data.repository.CrudRepository;
+
+import com.mitienda.spring.models.Categoria;
 
 import java.util.List;
 

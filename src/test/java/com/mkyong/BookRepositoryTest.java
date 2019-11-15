@@ -8,7 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.mitienda.spring.Categorias;
-import com.mitienda.spring.CategoriasRepository;
+import com.mitienda.spring.repositories.CategoriasRepository;
 
 import java.util.List;
 
