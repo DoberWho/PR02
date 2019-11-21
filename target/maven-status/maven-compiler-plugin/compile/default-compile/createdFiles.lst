@@ -1,0 +1,17 @@
+com\mitienda\spring\Backup.class
+com\mitienda\spring\Config.class
+com\mitienda\spring\menu\menuPrincipal.class
+com\mitienda\spring\models\Categoria.class
+com\mitienda\spring\models\comun\Tools.class
+com\mitienda\spring\menu\menuFactura.class
+com\mitienda\spring\models\Producto.class
+com\mitienda\spring\StartApplication.class
+com\mitienda\spring\models\Factura.class
+com\mitienda\spring\menu\crud.class
+com\mitienda\spring\models\FacturaLinea.class
+com\mitienda\spring\menu\menuClientes.class
+com\mitienda\spring\repositories\CategoriasRepository.class
+com\mitienda\spring\menu\MenuCategoria.class
+com\mitienda\spring\menu\menuCategorias.class
+com\mitienda\spring\models\Clientes.class
+com\mitienda\spring\controllers\CategoryController.class

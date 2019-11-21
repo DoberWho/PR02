@@ -5,11 +5,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.mitienda.spring.models.Categoria;
-import com.mitienda.spring.models.comun.DbObject;
 
 public class menuCategorias implements crud {
 
-	List<DbObject> categoriasLista = new ArrayList<>();
+	List<Categoria> categoriasLista = new ArrayList<>();
 	Categoria cat = new Categoria();
 	public static Scanner keyboard = new Scanner(System.in);
 
@@ -70,7 +69,7 @@ public class menuCategorias implements crud {
 	@Override
 	public void ver() {
 
-		categoriasLista = cat.list();
+		categoriasLista = new ArrayList();// cat.list(); // TODO: Por Hacer
 
 		for (int i = 0; i < categoriasLista.size(); i++) {
 
@@ -95,9 +94,10 @@ public class menuCategorias implements crud {
 		keyboard.reset();
 		String nuevoNombre = keyboard.nextLine();
 
-		cat = (Categoria) cat.getByid(id);
-		cat.setNombre(nuevoNombre);
-		cat.save();
+		// TODO: Por Hacer
+		/*
+		 * cat = (Categoria) cat.getByid(id); cat.setNombre(nuevoNombre); cat.save(); //
+		 */
 
 	}
 
@@ -110,7 +110,8 @@ public class menuCategorias implements crud {
 		eleccion = keyboard.nextLine();
 		int opcion = Integer.parseInt(eleccion);
 
-		categoriasLista.get(opcion).delete();
+		// TODO: Por Hacer
+		// categoriasLista.get(opcion).delete();
 
 	}
 
@@ -124,7 +125,8 @@ public class menuCategorias implements crud {
 		String nuevaCat = keyboard.nextLine();
 
 		cat.setNombre(nuevaCat);
-		cat.save();
+		// TODO: Por Hacer
+		// cat.save();
 
 		System.out.println("Se ha insertado la nueva Categoria");
 

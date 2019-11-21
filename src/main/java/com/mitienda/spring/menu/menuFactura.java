@@ -8,11 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.mitienda.spring.models.Factura;
-import com.mitienda.spring.models.comun.DbObject;
 
 public class menuFactura implements crud {
 
-	List<DbObject> facturaLista = new ArrayList<>();
+	List<Factura> facturaLista = new ArrayList<>();
 	Factura fac = new Factura();
 	public static Scanner keyboard = new Scanner(System.in);
 
@@ -73,7 +72,7 @@ public class menuFactura implements crud {
 	@Override
 	public void ver() {
 
-		facturaLista = fac.list();
+		facturaLista = new ArrayList();// fac.list(); // TODO: Por Hacer
 
 		for (int i = 0; i < facturaLista.size(); i++) {
 
@@ -94,7 +93,8 @@ public class menuFactura implements crud {
 		int opcion = Integer.parseInt(eleccion);
 		facturaLista.get(opcion);
 		int id = facturaLista.get(opcion).getId();
-		fac = (Factura) fac.getByid(id);
+		// TODO: Por Hacer
+		// fac = (Factura) fac.getByid(id);
 
 		System.out.println("Dime la fecha de Factura");
 		String nuevaFechaFactura = keyboard.nextLine();
@@ -112,7 +112,8 @@ public class menuFactura implements crud {
 		int nuevaSerieCliente = Integer.parseInt(keyboard.nextLine());
 		fac.setSerie(nuevaSerieCliente);
 
-		fac.save();
+		// TODO: Por Hacer
+		// fac.save();
 
 	}
 
@@ -125,7 +126,8 @@ public class menuFactura implements crud {
 		eleccion = keyboard.nextLine();
 		int opcion = Integer.parseInt(eleccion);
 
-		facturaLista.get(opcion).delete();
+		// TODO: Por Hacer
+		// facturaLista.get(opcion).delete();
 
 	}
 
@@ -154,7 +156,8 @@ public class menuFactura implements crud {
 		int nuevaSerieCliente = Integer.parseInt(keyboard.nextLine());
 		fac.setSerie(nuevaSerieCliente);
 
-		fac.save();
+		// TODO: Por Hacer
+		// fac.save();
 
 		System.out.println("Se ha insertado el nuevo cliente");
 

@@ -5,10 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.mitienda.spring.models.Clientes;
-import com.mitienda.spring.models.comun.DbObject;
 
 public class menuClientes implements crud {
-	List<DbObject> clientesLista = new ArrayList<>();
+	List<Clientes> clientesLista = new ArrayList<>();
 	Clientes cli = new Clientes();
 	public static Scanner keyboard = new Scanner(System.in);
 
@@ -69,7 +68,7 @@ public class menuClientes implements crud {
 	@Override
 	public void ver() {
 
-		clientesLista = cli.list();
+		clientesLista = new ArrayList();// cat.list(); // TODO: Por Hacer
 
 		for (int i = 0; i < clientesLista.size(); i++) {
 
@@ -87,9 +86,10 @@ public class menuClientes implements crud {
 		eleccion = keyboard.nextLine();
 		int opcion = Integer.parseInt(eleccion);
 		clientesLista.get(opcion);
-		int id = clientesLista.get(opcion).getId();
+		// TODO: Por Hacer
+		// int id = clientesLista.get(opcion).getId();
 
-		cli = (Clientes) cli.getByid(id);
+		// cli = (Clientes) cli.getByid(id);
 		System.out.println("Dime el nombre del nuevo Cliente");
 
 		String nuevoCliNombre = keyboard.nextLine();
@@ -106,7 +106,7 @@ public class menuClientes implements crud {
 		System.out.println("Dime el correo del nuevo Cliente");
 		String nuevoCorreo = keyboard.nextLine();
 		cli.setEmail(nuevoCorreo);
-		cli.save();
+		// cli.save(); // TODO: Por Hacer
 
 	}
 
@@ -119,7 +119,8 @@ public class menuClientes implements crud {
 		eleccion = keyboard.nextLine();
 		int opcion = Integer.parseInt(eleccion);
 
-		clientesLista.get(opcion).delete();
+		// TODO: Por Hacer
+		// clientesLista.get(opcion).delete();
 
 	}
 
@@ -144,7 +145,9 @@ public class menuClientes implements crud {
 		System.out.println("Dime el correo del nuevo Cliente");
 		String nuevoCorreo = keyboard.nextLine();
 		cli.setEmail(nuevoCorreo);
-		cli.save();
+
+		// TODO: Por Hacer
+		// cli.save();
 
 		System.out.println("Se ha insertado el nuevo cliente");
 

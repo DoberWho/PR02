@@ -1,12 +1,8 @@
 package com.mitienda.spring.models;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 
-import com.mitienda.spring.models.comun.DbObject;
-
-public class Producto extends DbObject {
+public class Producto {
 
 	private Integer id;
 	private Date created;
@@ -61,58 +57,6 @@ public class Producto extends DbObject {
 
 	public void setId_categoria(Integer id_categoria) {
 		this.id_categoria = id_categoria;
-	}
-
-	@Override
-	public String getTable() {
-		return "producto";
-	}
-
-	@Override
-	public String getCampos() {
-		String campos = "";
-		campos = getCorrectCampos(campos, "nombre", this.nombre);
-		campos = getCorrectCampos(campos, "precio", this.precio);
-		campos = getCorrectCampos(campos, "stock", this.stock);
-		campos = getCorrectCampos(campos, "id_categoria", this.id_categoria);
-		return campos;
-	}
-
-	@Override
-	public String getValues() {
-		String value = "";
-		value = getCorrectValues(value, this.nombre);
-		value = getCorrectValues(value, this.precio);
-		value = getCorrectValues(value, this.stock);
-		value = getCorrectValues(value, this.id_categoria);
-		return value;
-	}
-
-	@Override
-	public DbObject getDbObject(ResultSet res) throws SQLException {
-		Producto item = new Producto();
-		item.setId(res.getInt("id"));
-
-		int created = res.getInt("created");
-		Date date = new Date(created);
-		item.setCreated(date);
-
-		item.setNombre(res.getString("nombre"));
-		item.setPrecio(res.getInt("precio"));
-		item.setStock(res.getInt("stock"));
-		item.setId_categoria(res.getInt("id_categoria"));
-
-		return item;
-	}
-
-	@Override
-	public String toString() {
-		return this.getValues();
-	}
-
-	@Override
-	public boolean isNew() {
-		return (this.id == null);
 	}
 
 }
