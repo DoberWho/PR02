@@ -1,56 +1,78 @@
 package com.mitienda.spring.models;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.mitienda.spring.models.comun.DbObject;
 
-@Entity
-@Table(name="categorias")
-public class Categoria {
+public class Categoria extends DbObject {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
-    @Column(name="created")
-    private Date fecha_creacion;
-    
-    private String name;
+	private Integer id;
+	private Date created;
+	private String nombre;
 
-    public Categoria() {
-    }
+	@Override
+	public Integer getId() {
+		return id;
+	}
 
-    public Categoria(String name) {
-        this.name = name;
-    }
+	private void setId(Integer id) {
+		this.id = id;
+	}
 
-    @Override
-    public String toString() {
-        return "Categoria{" +
-                "id=" + id +
-                "created=" + fecha_creacion +
-                ", name='" + name + '\'' +
-                '}';
-    }
+	public Date getCreated() {
+		return created;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	private void setCreated(Date created) {
+		this.created = created;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	@Override
+	public String toString() {
+		return this.getValues();
+	}
+
+	@Override
+	public String getTable() {
+		return "categorias";
+	}
+
+	@Override
+	public String getCampos() {
+		return getCorrectCampos(null, "nombre", this.nombre);
+	}
+
+	@Override
+	public String getValues() {
+		return getCorrectValues(null, this.nombre);
+	}
+
+	@Override
+	public DbObject getDbObject(ResultSet res) throws SQLException {
+		Categoria item = new Categoria();
+		item.setId(res.getInt("id"));
+
+		int created = res.getInt("created");
+		Date date = new Date(created);
+		item.setCreated(date);
+		item.setNombre(res.getString("nombre"));
+
+		return item;
+	}
+
+	@Override
+	public boolean isNew() {
+		return (this.id == null);
+	}
+
 }
