@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.mitienda.spring.controllers.CategoryController;
 import com.mitienda.spring.models.Categoria;
 
 public class menuCategorias implements crud {
 
+	CategoryController ctrl = CategoryController.getInstance();
+
 	List<Categoria> categoriasLista = new ArrayList<>();
-	Categoria cat = new Categoria();
+
 	public static Scanner keyboard = new Scanner(System.in);
 
 	public menuCategorias() {
@@ -68,8 +71,8 @@ public class menuCategorias implements crud {
 
 	@Override
 	public void ver() {
-
-		categoriasLista = new ArrayList();// cat.list(); // TODO: Por Hacer
+ 
+		categoriasLista = ctrl.list();// cat.list(); // TODO: Por Hacer
 
 		for (int i = 0; i < categoriasLista.size(); i++) {
 
@@ -123,10 +126,9 @@ public class menuCategorias implements crud {
 		keyboard.reset();
 
 		String nuevaCat = keyboard.nextLine();
-
+		Categoria cat = new Categoria();
 		cat.setNombre(nuevaCat);
-		// TODO: Por Hacer
-		// cat.save();
+		ctrl.save(cat);
 
 		System.out.println("Se ha insertado la nueva Categoria");
 
