@@ -6,10 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+@Entity
+@Table(name = "categorias", catalog = "dialer")
 public class Categoria implements java.io.Serializable {
 
-
+	@Id
 	private Integer id;
 	private Date created;
 	private String nombre;

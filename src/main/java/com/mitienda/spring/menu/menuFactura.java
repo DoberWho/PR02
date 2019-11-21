@@ -100,8 +100,7 @@ public class menuFactura implements crud {
 		String nuevaFechaFactura = keyboard.nextLine();
 		try {
 			fecha = sdf.parse(nuevaFechaFactura);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+		} catch (ParseException e) { 
 			e.printStackTrace();
 		}
 		fac.setFecha(fecha);
@@ -143,8 +142,7 @@ public class menuFactura implements crud {
 
 		try {
 			fecha = sdf.parse(nuevaFechaFactura);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+		} catch (ParseException e) { 
 			e.printStackTrace();
 		}
 
