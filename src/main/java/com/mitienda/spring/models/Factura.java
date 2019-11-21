@@ -2,8 +2,15 @@ package com.mitienda.spring.models;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "facturas", catalog = "dialer")
 public class Factura {
 
+	@Id
 	private Integer id;
 	private Date created;
 	private Date fecha;
