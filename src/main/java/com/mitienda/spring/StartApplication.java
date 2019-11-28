@@ -25,7 +25,6 @@ public class StartApplication extends menuPrincipal implements CommandLineRunner
 		 * Aqui controlar los Menus y el cambio entre ellos. Y En cada menu; usar su
 		 * respectivo Controller y Repository
 		 */
-
 		menuPrincipal.iniciaMenu();
 
 	}
