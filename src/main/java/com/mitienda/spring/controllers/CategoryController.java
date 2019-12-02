@@ -5,22 +5,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.mitienda.spring.models.Categoria;
 import com.mitienda.spring.repositories.CategoriasRepository;
 
+@Service
 public class CategoryController {
-
-	private static CategoryController instance;
-
-	 
-	public static CategoryController getInstance() {
-		if (instance == null) {
-			instance = new CategoryController();
-		}
-		return instance;
-	}
 
 	@Autowired
 	private CategoriasRepository repository;

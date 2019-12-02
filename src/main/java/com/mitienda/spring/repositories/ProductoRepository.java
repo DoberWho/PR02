@@ -11,7 +11,7 @@ import com.mitienda.spring.models.Producto;
 @Repository
 public interface ProductoRepository extends CrudRepository<Producto, Long> {
 
-	@Query(value = "select * from productos where id_categoria = ?1", nativeQuery = true)
-	ArrayList<Producto> findByCategoryId(Long idCat);
+	@Query(value = "select * from productos where id_categoria = ?1 and name like %?2%", nativeQuery = true)
+	ArrayList<Producto> findByCategoryId(Long idCat, String name);
 
 }
